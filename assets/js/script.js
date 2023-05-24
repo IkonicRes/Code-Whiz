@@ -14,7 +14,6 @@ choices = [q1Choices, q2Choices, q3Choices, q4Choices, q5Choices]
 gameTime = 75
 currentQ = 0
 quizAnswers = [2, 2, 3, 2, 3]
-timerText = $("time").text
 //Function to for loop over items and append them to list
 function loadQuestion(){
     //Set the current question's p text...
@@ -43,13 +42,24 @@ function quizHandler(){
         //If answer is wrong, Add/append to div "Wrong" and deduct time.
         //Check if the currentQ++ is > 4 and break the timer if so, otherwise call the loadQuestion function
     gameTime = 75
+    $("#countdown").text("Time: " + gameTime)
     //Start Timer
-    setInterval(function () {
+    gameTimer = setInterval(function () {
         //Subtract from timer
-        //Update progress bar and label
-        //Check if time < 1 and if so break self
         gameTime--
+        
+        //Update progress bar and label
+        $("#countdown").attr({
+            value: gameTime,
+            max: 75,
+        })
+        $("#countdown").text("Time: " + gameTime)
+        //Check if time = 0 and if so break self
+        if (gameTime === 0){
+            clearInterval(gameTimer)
+        }
     }, 1000);
+
 
             
     //When timer is broken, check the time left, and if it's more than 0, assign the time left to a temporary score
