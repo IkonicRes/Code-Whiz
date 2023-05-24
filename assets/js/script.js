@@ -15,20 +15,36 @@ gameTime = 75
 currentQ = 0
 quizAnswers = [2, 2, 3, 2, 3]
 userChoice = Number
+function endGame() {
+    $("main").prepend("<h1>All done!</h1>")
+    $("#main-text").text("Your final score is " + gameTime + ".")
+    $("ol").remove()
+    $("main").append('<section class="d-flex flex-row"><div>Enter Initials: </div><input type="text"></input><input type="submit" class="btn btn-success"></input></section>')
+}
 
 function oneSecDelay(bCorrect){
     setTimeout(function(){
         if (bCorrect){
-            currentQ++
             $("ol").remove()
             $("#result-div").remove()
+            if (currentQ == 4){
+                endGame()
+            }
+            else{
+            currentQ++
             loadQuestion()
+            }
         }
         else{
-            currentQ++
             $("ol").remove()
-            loadQuestion()
             $("#result-div").remove()
+            if (currentQ == 4){
+                endGame()                
+            }
+            else{
+            currentQ++
+            loadQuestion()
+            }
         }
     },1000); 
 }
