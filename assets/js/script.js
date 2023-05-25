@@ -39,6 +39,7 @@ function endGame() {
             tScores.push(tScore)
             localStorage.setItem("scores", JSON.stringify(tScores))
         }
+        window.location.href = "../../score.html"
     })
 }
 
