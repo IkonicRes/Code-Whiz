@@ -17,11 +17,12 @@ quizAnswers = [2, 2, 3, 2, 3]
 userChoice = Number
 scoresExist = (localStorage.getItem('scores') !== null)
 tScores = []
+
 function endGame() {
     $("main").prepend("<h1>All done!</h1>")
     $("#main-text").text("Your final score is " + gameTime + ".")
     $("ol").remove()
-    $("main").append('<section class="d-flex flex-row align-items-center"><h4>Enter Initials: </h4z><input type="text" id="callsign"></input><input type="submit" class="btn btn-success h-25" id="submit-btn"></input></section>')
+    $("main").append('<section class="d-flex flex-row align-items-center"><h4>Enter Initials: </h4z><input type="text" id="callsign"></input><input type="submit" class="btn btn-success h-25 align-self-center" id="submit-btn"></input></section>')
     $("#submit-btn").on("click", function() {
         //Get the text of the input box
         tName = $("#callsign").val()
@@ -43,7 +44,7 @@ function endGame() {
     })
 }
 
-function oneSecDelay(bCorrect){
+function halfSecDelay(bCorrect){
     setTimeout(function(){
         if (bCorrect){
             $("ol").remove()
@@ -69,23 +70,29 @@ function oneSecDelay(bCorrect){
             loadQuestion()
             }
         }
-    },1000); 
+    },500); 
 }
 //Event Handler for onclick of the user's choice
 function addChoiceButtonListener() {
-    $(".choice-button").on("click", function() {
+    $(".choice-button").one("click", function() {
         //Get the text of the clicked answer
         userChoice = $(this).text()
         if (userChoice === choices[currentQ][quizAnswers[currentQ]]){
             setAnswerHighlight()
             appendResult(true)
-            oneSecDelay(true)
+            halfSecDelay(true)
         }
         else {
             setAnswerHighlight()
             appendResult(false)
-            gameTime -= 15
-            oneSecDelay(false)
+            if ((gameTime - 15) <= 0) {
+                gameTime = 0
+                clearInterval(gameTimer)
+            }
+            else {
+                gameTime -= 15
+            }
+            halfSecDelay(false)
         }
     })
 }
@@ -130,7 +137,6 @@ function loadQuestion(){
     for (index = 0; index < 4; index++)
         $("ol").append('<li class="btn btn-info m-1 choice-button d-flex flex-row justify-content-center h-25" id="li' + index  + '">' + choices[currentQ][index] + '</li>')
     addChoiceButtonListener()
-    
 }
 //Handler Function to be called onclick of start
 function quizHandler(){
