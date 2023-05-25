@@ -15,11 +15,31 @@ gameTime = 75
 currentQ = 0
 quizAnswers = [2, 2, 3, 2, 3]
 userChoice = Number
+scoresExist = (localStorage.getItem('scores') !== null)
+tScores = []
 function endGame() {
     $("main").prepend("<h1>All done!</h1>")
     $("#main-text").text("Your final score is " + gameTime + ".")
     $("ol").remove()
-    $("main").append('<section class="d-flex flex-row"><div>Enter Initials: </div><input type="text"></input><input type="submit" class="btn btn-success"></input></section>')
+    $("main").append('<section class="d-flex flex-row align-items-center"><h4>Enter Initials: </h4z><input type="text" id="callsign"></input><input type="submit" class="btn btn-success h-25" id="submit-btn"></input></section>')
+    $("#submit-btn").on("click", function() {
+        //Get the text of the input box
+        tName = $("#callsign").val()
+        console.log(tName)
+        tScore = (tName + "%" + gameTime)
+        tScores = []
+        if (scoresExist){
+            JSON.parse(localStorage.getItem("allEntries"))
+            tScores = JSON.parse(localStorage.getItem("scores"))
+            console.log(tScores)
+            tScores.push(tScore)
+            localStorage.setItem("scores", JSON.stringify(tScores))
+        }
+        else{
+            tScores.push(tScore)
+            localStorage.setItem("scores", JSON.stringify(tScores))
+        }
+    })
 }
 
 function oneSecDelay(bCorrect){
@@ -28,6 +48,7 @@ function oneSecDelay(bCorrect){
             $("ol").remove()
             $("#result-div").remove()
             if (currentQ == 4){
+                clearInterval(gameTimer)
                 endGame()
             }
             else{
@@ -39,6 +60,7 @@ function oneSecDelay(bCorrect){
             $("ol").remove()
             $("#result-div").remove()
             if (currentQ == 4){
+                clearInterval(gameTimer)
                 endGame()                
             }
             else{
@@ -123,19 +145,19 @@ function quizHandler(){
         //If answer is wrong, Add/append to div "Wrong" and deduct time.
         //Check if the currentQ++ is > 4 and break the timer if so, otherwise call the loadQuestion function
     gameTime = 75
-    $("#countdown").text("Time: " + gameTime)
+    $("#countdown").text("Time: " + gameTime);
+    // Set the initial width of the progress bar
+    $("#countdown").css("width", "100%");
     //Start Timer
     gameTimer = setInterval(function () {
         //Subtract from timer
         gameTime--
-        //Update progress bar and label
-        $("#countdown").attr({
-            value: gameTime,
-            max: 75,
-        })
-        // $(":root").css("--game-time", gameTime)
-        // $("#countdown").attr("style", "width: " + gameTime + "%")
-        $("#countdown").text("Time: " + gameTime)
+        // Calculate the width of the progress bar
+        // Update the time text
+        $("#countdown").text("Time: " + gameTime);
+        var progressBarWidth = (gameTime / 75) * 100 + "%"
+        // Update the width of the progress bar using CSS
+        $("#countdown").css("width", progressBarWidth)
         //Check if time = 0 and if so break self
         if (gameTime === 0){
             clearInterval(gameTimer)

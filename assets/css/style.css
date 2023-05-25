@@ -1,9 +1,4 @@
-/* :root {
-    --game-time: 0;
-} */
-/* @keyframes progress-bar-stripes{
-    0%{background-position-x:var(--gametime)px}
-} */
-/* .progress-bar-animated{
-    animation:var(--game-time)s linear infinite progress-bar-stripes
-} */
+.progress-bar {
+    transition: width 0.5s ease-in-out !important;
+    background-color: #00FF00 !important;
+  }
