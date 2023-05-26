@@ -1,7 +1,6 @@
-/* .progress-bar {
-    transition: width 0.5s ease-in-out !important;
-    background-color: #00FF00 !important;
-  } */
+body{
+  overflow-x: hidden;
+}
 
 @keyframes progress-bar-stripes {
   0% {
