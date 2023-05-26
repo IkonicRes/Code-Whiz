@@ -20,7 +20,7 @@ body{
 }
 /* Override the default .progress-bar-animated class with a new animation length, using "infinite" time as the time. */
 .progress-bar-animated {
-  animation: 99999s linear infinite progress-bar-stripes;
+  animation: 75s linear infinite progress-bar-stripes;
 }
 /* Set the countdown text to nowrap so it stays inline even though the bar shrinks, and add a bit of padding to the right. */
 #countdown {
