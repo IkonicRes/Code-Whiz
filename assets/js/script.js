@@ -1,8 +1,10 @@
+//Declare choices for each question...
 q1Choices = ["strings", "booleans", "alerts", "numbers"]
 q2Choices = ["quotes", "curly brackets", "parentheses", "square brackets"]
 q3Choices = ["numbers and strings", "other arrays", "booleans", "all of the above"]
 q4Choices = ["commas", "curly brackets", "quotes", "parentheses"]
 q5Choices = ["JavaScript", "terminal/bash", "for loops", "console.log"]
+//...and the questions themselves
 quizPrompts = [
     "Commonly used data types DO NOT include:",
     "The condition in an if/else statement is enclosed within _____.",
@@ -10,22 +12,36 @@ quizPrompts = [
     "String values must be enclosed within _____ when being assigned to variables.",
     "A very useful tool used during development and debugging for printing content to the debugger is:"
     ]
+//Then add all of the choices arrays to one array so that there is one question array and one answer array
 choices = [q1Choices, q2Choices, q3Choices, q4Choices, q5Choices]
+//Set the default variables
 gameTime = 75
 currentQ = 0
 quizAnswers = [2, 2, 3, 2, 3]
 userChoice = Number
-scoresExist = (localStorage.getItem('scores') !== null)
 tScores = []
+//And check whether scores already exist in localstorage
+scoresExist = (localStorage.getItem('scores') !== null)
 
+
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+//This function is called when the game should end
 function endGame() {
+    $("#countdown").text("Time: " + gameTime);
+    // Set the initial width of the progress bar
+    $(".progress-bar").css("width", "0%");
+    //It prepends the "All done!" header to the beginning of the main section, then sets the main text to your result
     $("main").prepend("<h1>All done!</h1>")
     $("#main-text").text("Your final score is " + gameTime + ".")
+    //removes all choices and appends a section under the results text has a bit of text, an input box, and a submit button.
     $("ol").remove()
     $("main").append('<section class="d-flex flex-row align-items-center"><h4>Enter Initials: </h4z><input type="text" id="callsign"></input><input type="submit" class="btn btn-success h-25 align-self-center" id="submit-btn"></input></section>')
+    //Add a click event to the submit button
     $("#submit-btn").on("click", function() {
         //Get the text of the input box
         tName = $("#callsign").val()
+        //Set the score percentage and reset the "scores" array
         tScore = (tName + "%" + gameTime)
         tScores = []
         if (scoresExist){
@@ -154,7 +170,7 @@ function quizHandler(){
     gameTime = 75
     $("#countdown").text("Time: " + gameTime);
     // Set the initial width of the progress bar
-    $("#countdown").css("width", "100%");
+    $(".progress-bar").css("width", "100%");
     //Start Timer
     gameTimer = setInterval(function () {
         //Subtract from timer
@@ -163,10 +179,12 @@ function quizHandler(){
         // Update the time text
         $("#countdown").text("Time: " + gameTime);
         var progressBarWidth = (gameTime / 75) * 100 + "%"
+        $(".progress-bar").css("width", (100/75) * gameTime + "%");
         // Update the width of the progress bar using CSS
-        $("#countdown").attr('aria-current', progressBarWidth)
+        $(".progress-bar").attr('aria-valuenow', progressBarWidth)
         //Check if time = 0 and if so break self
         if (gameTime === 0){
+            endGame()   
             clearInterval(gameTimer)
         }
     }, 1000);

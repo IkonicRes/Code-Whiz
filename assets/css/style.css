@@ -2,3 +2,25 @@
     transition: width 0.5s ease-in-out !important;
     background-color: #00FF00 !important;
   } */
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 100rem;
+  }
+}
+.progress-bar-striped {
+  width:0%;
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  background-image: url("../images/progress_bar.png");
+  justify-self: flex-end;
+}
+.progress-bar-animated {
+  animation: 10s linear infinite progress-bar-stripes;
+}
+#countdown {
+  white-space: nowrap;
+  padding-right: 1vw;
+}

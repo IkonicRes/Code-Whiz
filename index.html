@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
     <title>Code Whiz</title>
 </head>
 <body>
-    <nav class="nav-bar bg-light d-flex flex-row-reverse justify-content-between px-2">
-        <time role="progressbar" class="progress-bar progress-bar-striped progress-bar-animated w-25 text-end" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75" id="countdown">Time: 0</time>
+    <nav class="nav-bar bg-light d-flex flex-row justify-content-between px-2">
         <a type="button" class="btn btn-primary btn-sm" href="https://ikonicres.github.io/Code-Whiz/score.html">View High Scores</a>
+        <div class="d-flex justify-content-end w-25">
+            <time role="progressbar" class="progress-bar progress-bar-striped progress-bar-animated text-end d-inherit" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75"></time>
+            <p style="transform: translate(-90%, 8%); margin-right:-18%; margin-bottom:-5%;"; id="countdown">Time: 0</p>
+        </div>
     </nav>
         <main class="d-flex flex-column align-items-center p-4 mt-5">
             <h1>Coding Quiz Challenge</h1>
