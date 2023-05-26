@@ -18,7 +18,7 @@ body{
   background-image: url("../images/progress_bar.png");
   justify-self: flex-end;
 }
-/* Override the default .progress-bar-animated class with a new animation length, using 7 seconds as the time. */
+/* Override the default .progress-bar-animated class with a new animation length, using 40 seconds as the time. */
 .progress-bar-animated {
   animation: 40s linear infinite progress-bar-stripes;
 }
