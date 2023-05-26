@@ -38,7 +38,7 @@ function endGame() {
             tScores.push(tScore)
             localStorage.setItem("scores", JSON.stringify(tScores))
         }
-        window.location.href = "https://github.com/IkonicRes/Code-Whiz/blob/f4040c20e21ebea77f3742e659e1960a51e170a7/score.html"
+        window.location.href = "https://ikonicres.github.io/score.html"
     })
 }
 
