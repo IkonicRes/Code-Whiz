@@ -40,6 +40,10 @@ function endGame() {
     $("#submit-btn").on("click", function() {
         //Get the text of the input box
         tName = $("#callsign").val()
+        //If name wasnt entered, add a default anonymous name instead.
+        if (tName.length < 1){
+            tName = "FunkyAnon"
+        }
         //Set the score percentage and reset the "scores" array
         tScore = (tName + "%" + gameTime)
         tScores = []
