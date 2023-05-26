@@ -1,12 +1,14 @@
+/* Set the body overflow on the x-axis to hidden, to prevent scrollbar on bottom */
 body{
   overflow-x: hidden;
 }
-
+/* This needs to be overridden so that the progress bar works with our code logic */
 @keyframes progress-bar-stripes {
   0% {
     background-position-x: 100rem;
   }
 }
+/* This adds a nice ease-in-out transition to our progress bar so that it animates nicely, and then there is some logic for alignment */
 .progress-bar-striped {
   width:0%;
   -webkit-transition: width 1s ease-in-out;
@@ -16,9 +18,11 @@ body{
   background-image: url("../images/progress_bar.png");
   justify-self: flex-end;
 }
+/* Override the default .progress-bar-animated class with a new animation length, using "infinite" time as the time. */
 .progress-bar-animated {
-  animation: 10s linear infinite progress-bar-stripes;
+  animation: 99999s linear infinite progress-bar-stripes;
 }
+/* Set the countdown text to nowrap so it stays inline even though the bar shrinks, and add a bit of padding to the right. */
 #countdown {
   white-space: nowrap;
   padding-right: 1vw;

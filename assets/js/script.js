@@ -82,7 +82,6 @@ function delayedFacilitator(){
     },500); 
 }
 
-
 //This function should add a choice button listener every time a "Choice" button is created, which should prompt the evaluation logic and move the game forward when activated.
 function addChoiceButtonListener() {
     //set the event to happen on click for every element with class choice-button, but only once
@@ -157,7 +156,6 @@ function appendResult(result){
     }
 }
 
-
 //This function loops populates the question and loops over the possible answers populating them as well.
 function loadQuestion(){
     //First we set the user's choice to a ridiculous impossible index
@@ -174,6 +172,8 @@ function loadQuestion(){
     //Add a choice button listener to the page when all buttons have been added
     addChoiceButtonListener()
 }
+
+
 //Handler Function to be called onclick of start; This function runs our main game loop.
 function quizHandler(){
     //Remove h1 from html
