@@ -6,7 +6,7 @@ neat little project that ended up looking pretty nice. I wanted the user to have
 the questions correctly. This project taught me a lot about using js to manipulate css and html in many different ways, and has kind of made me more comfortable with the idea of
 applying my existing code knowledge to front-end development. It helps me remember some of the basics as well as track my progress getting better.
 
-## Table of Contents (Optional)
+## Table of Contents
 
 
 - [Usage](#usage)
