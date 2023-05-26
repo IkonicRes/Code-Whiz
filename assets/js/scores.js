@@ -2,7 +2,7 @@ scoresExist = (localStorage.getItem('scores') !== null)
 
 function addResetButtonListener() {
     $("#reset").on("click", function() {
-        window.location.href = "https://github.com/IkonicRes/Code-Whiz/blob/f4040c20e21ebea77f3742e659e1960a51e170a7/index.html"
+        window.location.href = "https://ikonicres.github.io/Code-Whiz"
     });
 }
 
