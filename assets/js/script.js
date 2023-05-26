@@ -26,13 +26,11 @@ function endGame() {
     $("#submit-btn").on("click", function() {
         //Get the text of the input box
         tName = $("#callsign").val()
-        console.log(tName)
         tScore = (tName + "%" + gameTime)
         tScores = []
         if (scoresExist){
             JSON.parse(localStorage.getItem("allEntries"))
             tScores = JSON.parse(localStorage.getItem("scores"))
-            console.log(tScores)
             tScores.push(tScore)
             localStorage.setItem("scores", JSON.stringify(tScores))
         }
@@ -72,6 +70,8 @@ function halfSecDelay(bCorrect){
         }
     },500); 
 }
+
+
 //Event Handler for onclick of the user's choice
 function addChoiceButtonListener() {
     $(".choice-button").one("click", function() {
@@ -164,7 +164,7 @@ function quizHandler(){
         $("#countdown").text("Time: " + gameTime);
         var progressBarWidth = (gameTime / 75) * 100 + "%"
         // Update the width of the progress bar using CSS
-        $("#countdown").css("width", progressBarWidth)
+        $("#countdown").attr('aria-current', progressBarWidth)
         //Check if time = 0 and if so break self
         if (gameTime === 0){
             clearInterval(gameTimer)

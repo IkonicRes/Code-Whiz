@@ -9,12 +9,12 @@
 </head>
 <body>
     <nav class="nav-bar bg-light d-flex flex-row-reverse justify-content-between px-2">
-        <time role="progressbar" class="progress-bar progress-bar-striped progress-bar-animated w-25 text-end" id="countdown">Time: 0</time>
+        <time role="progressbar" class="progress-bar progress-bar-striped progress-bar-animated w-25 text-end" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75" id="countdown">Time: 0</time>
         <a type="button" class="btn btn-primary btn-sm" href="./score.html">View High Scores</a>
     </nav>
         <main class="d-flex flex-column align-items-center p-4 mt-5">
             <h1>Coding Quiz Challenge</h1>
-            <p class="lead w-50" id="main-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <p class="lead w-50" id="main-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by fifteen seconds!</p>
             <button type="button" class="btn btn-secondary" id="start-quiz">
                 Start Quiz!
             </button>
