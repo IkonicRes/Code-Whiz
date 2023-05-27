@@ -25,13 +25,20 @@ body{
 /* Set the countdown text to nowrap so it stays inline even though the bar shrinks, and add a bit of padding to the right. */
 #countdown {
   white-space: nowrap;
-  padding-right: 1vw;
+  padding-right: 1.5vw;
 }
 /* Add a responsive ruleset to handle the time text offset, and override the bootstrap css margin-right*/
 @media only screen and (max-width: 992px) {
     #countdown{
-     padding-right: 0;
-     margin-right: -35% !important;
+     padding-right: 3vw;
+     margin-right: -45% !important;
    }
+
+}
+@media only screen and (max-width: 512px) {
+  #countdown{
+   padding-right: 4vw;
+   margin-right: -74% !important;
+ }
 
 }
