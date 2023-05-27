@@ -27,3 +27,10 @@ body{
   white-space: nowrap;
   padding-right: 1vw;
 }
+@media only screen and (max-width: 992px) {
+    #countdown{
+     padding-right: 0;
+     margin-right: -35% !important;
+   }
+
+}

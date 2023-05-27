@@ -116,6 +116,7 @@ function addChoiceButtonListener() {
             }
             //... and fire the delayed facilitator function
             delayedFacilitator()
+            $('.choice-button').off()
         }
     })
 }

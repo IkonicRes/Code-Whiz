@@ -32,7 +32,7 @@ The score page has a "Play" button to replay the quiz, and a "Clear" button to c
 
 ## Credits
 
-Much thanks to TA's, classmates, and cold brew once again.
+Much thanks to TAs, classmates, and cold brew once again.
 
 ## License
 

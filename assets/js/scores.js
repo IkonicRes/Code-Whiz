@@ -39,7 +39,7 @@ function addClearButtonListener() {
     });
 }
 
-//This function runs my all-time favorite algorith in reverse, bubblesort! For more on how the algorithm works, check here ===> https://www.geeksforgeeks.org/bubble-sort
+//This function runs my all-time favorite algorithm in reverse, bubblesort! For more on how the algorithm works, check here ===> https://www.geeksforgeeks.org/bubble-sort
 function bubbleSort(inputArr) {
     let len = inputArr.length;
     for (var index0 = 0; index0 < len; index0++) {
