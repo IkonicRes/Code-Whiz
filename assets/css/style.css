@@ -27,6 +27,7 @@ body{
   white-space: nowrap;
   padding-right: 1vw;
 }
+/* Add a responsive ruleset to handle the time text offset, and override the bootstrap css margin-right*/
 @media only screen and (max-width: 992px) {
     #countdown{
      padding-right: 0;

@@ -90,6 +90,8 @@ function delayedFacilitator(){
 function addChoiceButtonListener() {
     //set the event to happen on click for every element with class choice-button, but only once
     $(".choice-button").one("click", function() {
+        //When user selects a choice-button, turn all choice buttons off so they can't press again
+        $('.choice-button').off()
         //Get the text of the clicked answer
         userChoice = $(this).text()
         //Check the user's choice(the text of the clicked element) against the sub-array of the correct index of the current quizAnswers element, and if user is correct...
@@ -116,7 +118,7 @@ function addChoiceButtonListener() {
             }
             //... and fire the delayed facilitator function
             delayedFacilitator()
-            $('.choice-button').off()
+            
         }
     })
 }
